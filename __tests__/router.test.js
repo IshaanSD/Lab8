@@ -4,7 +4,7 @@
 
 import { pushToHistory } from '../scripts/router'
 
-describe('history stack',()=>{
+describe('history stack length and states',()=>{
     test('settings branch',()=>{
         pushToHistory('settings')
         expect(window.history.length).toBe(2)
