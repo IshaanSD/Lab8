@@ -73,6 +73,8 @@ describe('Basic user flow for SPA ', () => {
                  alt: 'bee with sunglasses'
               }
              })
+  
+
   }, 10000);
 
   it('Test6: On first Entry page - checking <body> element classes', async () => {

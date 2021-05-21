@@ -3,28 +3,35 @@
  */
 
 import { pushToHistory } from '../scripts/router'
-
+let len = 1
 describe('history stack length and states',()=>{
     test('settings branch',()=>{
         pushToHistory('settings')
-        expect(window.history.length).toBe(2)
+        len++;
+        expect(window.history.length).toBe(len)
+        
         expect(window.history.state.page).toBe("settings")
     })
     test('entry branch',()=>{
-        pushToHistory('entry', 69) 
-        expect(window.history.length).toBe(3)
-        expect(window.history.state.page).toBe("entry69")
+        for(let i=1;i<10;i++){
+        pushToHistory('entry', i) 
+        len++;
+        expect(window.history.length).toBe(len)
+        expect(window.history.state.page).toBe("entry"+i)
+    }
     })
     test('all branches',()=>{
         
-        expect(window.history.length).toBe(3)
+        expect(window.history.length).toBe(len)
 
         pushToHistory('settings')
-        expect(window.history.length).toBe(4)
+        len++;
+        expect(window.history.length).toBe(len)
         expect(window.history.state.page).toBe("settings")
 
         pushToHistory('home')
-        expect(window.history.length).toBe(5)
+        len++;
+        expect(window.history.length).toBe(len)
         expect(window.history.state.page).toBeUndefined()
 
     })
